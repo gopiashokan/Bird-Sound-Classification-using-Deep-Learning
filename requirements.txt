@@ -1,0 +1,7 @@
+tensorflow
+opencv-python
+pillow
+numpy
+librosa
+streamlit
+streamlit_extras
