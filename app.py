@@ -1,7 +1,8 @@
+import os
 import json
 import librosa
+import cv2
 import numpy as np
-import PIL.Image as Image
 import tensorflow as tf
 import streamlit as st
 from streamlit_extras.add_vertical_space import add_vertical_space
@@ -69,21 +70,31 @@ def prediction(audio_file):
     confidence = round(np.max(prediction)*100, 2)
     
     add_vertical_space(1)
-    st.markdown(f'<h2 style="text-align: center; color: orange;">{confidence}% Match Found</h2>', 
+    st.markdown(f'<h4 style="text-align: center; color: orange;">{confidence}% Match Found</h4>', 
                     unsafe_allow_html=True)
     
-    st.markdown(f'<h2 style="text-align: center; color: green;">{predicted_class}</h2>', 
+    # Display the Image
+    image_path = os.path.join('Inference_Images', f'{predicted_class}.jpg')
+    img = cv2.imread(image_path, cv2.IMREAD_COLOR)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img = cv2.resize(img, (350, 300))
+    
+    _,col2,_ = st.columns([0.1,0.8,0.1])
+    with col2:
+        st.image(img)
+
+    st.markdown(f'<h3 style="text-align: center; color: green;">{predicted_class}</h3>', 
                     unsafe_allow_html=True)
 
     
 
 
-_, col2, _  = st.columns([0.1,0.9,0.1])
+_,col2,_  = st.columns([0.1,0.9,0.1])
 with col2:
     input_audio = st.file_uploader(label='Upload the Audio', type=['mp3', 'wav'])
 
 if input_audio is not None:
 
-    _, col2, _ = st.columns([0.2,0.8,0.2])
+    _,col2,_ = st.columns([0.2,0.8,0.2])
     with col2:
         prediction(input_audio)

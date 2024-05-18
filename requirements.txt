@@ -1,7 +1,10 @@
 tensorflow
+scikit-learn
 opencv-python
-pillow
-numpy
 librosa
+numpy
+pandas
+matplotlib
 streamlit
 streamlit_extras
+tqdm
