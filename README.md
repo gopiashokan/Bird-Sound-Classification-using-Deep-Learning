@@ -108,6 +108,8 @@ To use this project, follow these steps:
 
 <br />
 
+![](https://github.com/gopiashokan/Bird-Sound-Classification-using-Deep-Learning/blob/main/Inference_Images/Bird_Inference.JPG)
+
 🚀 **Application:** [https://huggingface.co/spaces/gopiashokan/Bird-Sound-Classification](https://huggingface.co/spaces/gopiashokan/Bird-Sound-Classification)
 
 
