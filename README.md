@@ -31,6 +31,7 @@ In the realm of environmental conservation and wildlife research, accurately ide
 - Pandas
 - Matplotlib
 - Streamlit
+- Hugging Face
 
 <br />
 
